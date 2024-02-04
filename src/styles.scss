@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #3a3a3a;
+}
+
+.font-space-grotesk {
+  font-family: "Space Grotesk", sans-serif !important;
+}
+
+/* styles.scss */
+.header-button-active {
+  // Agrega tus estilos personalizados aquí
+  background-color: #007bff !important;
+  color: #fff;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
