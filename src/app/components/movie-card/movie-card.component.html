@@ -1,0 +1,24 @@
+<mat-card class="bg-white/20 backdrop-blur-xl shadow-xl shadow-white/5 rounded-lg p-2 text-white">
+    <mat-card-header class="mb-3">
+        <mat-card-title class="text-3xl mb-2 ">{{movieProperties.title}}</mat-card-title>
+        <mat-card-subtitle>Fecha de lanzamiento: {{movieProperties.release_date}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="w-full flex flex-col md:flex-row xl:flex-row justify-between gap-2">
+            <div class="flex flex-col justify-between">
+                <p class="text-pretty">{{movieProperties.overview}}</p>
+                <div class="flex gap-2 text-lg">
+                    <span>Calificación:</span>
+                    <span class="font-medium"
+                        [ngClass]="{'text-red-600': movieProperties.vote_average < 5, 'text-yellow-500': movieProperties.vote_average > 6 && movieProperties.vote_average < 8, 'text-green-500': movieProperties.vote_average > 8}">
+                        {{movieProperties.vote_average}}
+                    </span>
+                    <span>Votos: {{movieProperties.vote_count}}</span>
+                    <span>Popularidad: {{movieProperties.popularity}}</span>
+                </div>
+            </div>
+            <img matCardImage class="size-2/3 md:size-1/3 xl:size-1/3 rounded-md shadow-xl shadow-rose-500/20"
+                [src]="'https://image.tmdb.org/t/p/w500'+movieProperties.poster_path" alt={{movieProperties.poster_path}} />
+        </div>
+    </mat-card-content>
+</mat-card>

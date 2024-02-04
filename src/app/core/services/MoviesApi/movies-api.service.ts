@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
+import { IMoviePage } from "../../interfaces/i-movie-page";
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
 
@@ -13,14 +14,10 @@ export class MoviesApiService {
 
   constructor(private http: HttpClient) { }
 
-  getPopularMovies(): Observable<any> {
+  getPopularMovies(): Observable<IMoviePage> {
     const url = `${this.apiURL}movie?api_key=${this.apiKey}&sort_by=popularity.desc&language=es&page=1`;
 
     // Realiza la solicitud HTTP y devuelve el observable
-    return this.http.get(url);
-  }
-
-  getImage(poster_path: string, size: string = "w250"): string {
-    return `${this.apiURLImage}${size}/${poster_path}`;
+    return this.http.get<IMoviePage>(url);
   }
 }
