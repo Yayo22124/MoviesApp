@@ -26,6 +26,7 @@ import { PaginatorComponent } from '../../../../components/paginator/paginator.c
   styleUrl: './most-popular.component.scss',
 })
 export class MostPopularComponent implements OnInit {
+  // Movies Page and Movies Result object
   popularMovies: IMoviePage = {
     page: 0,
     results:
@@ -63,6 +64,17 @@ export class MostPopularComponent implements OnInit {
       },
       (error) => {
         console.error('Error al obtener películas:', error);
+      }
+    );
+  }
+
+  onPageChange(page: number): void {
+    this.moviesApiService.getPopularMovies(page).subscribe(
+      (response) => {
+        this.popularMovies = response;
+      },
+      (error) => {
+        console.error("Error al obtener películas:", error);
       }
     );
   }

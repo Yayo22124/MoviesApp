@@ -1,5 +1,5 @@
 <main class="mt-5 w-11/12 xl:w-2/4 md:w-3/4 sm:w-11/12 flex flex-col gap-5 mx-auto">
-    <app-paginator [length]="popularMovies.total_pages" />
+    <app-paginator [length]="popularMovies.total_pages" (pageChange)="onPageChange($event)" />
     @for (movie of popularMovies.results; track $index) {
     @defer (on viewport;) {
     <app-movie-card 
@@ -11,5 +11,5 @@
     <app-loader></app-loader>
     }
     }
-    <app-paginator [length]="popularMovies.total_pages" />
+    <app-paginator [length]="popularMovies.total_pages" (pageChange)="onPageChange($event)" />
 </main>

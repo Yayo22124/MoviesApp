@@ -14,8 +14,8 @@ export class MoviesApiService {
 
   constructor(private http: HttpClient) { }
 
-  getPopularMovies(): Observable<IMoviePage> {
-    const url = `${this.apiURL}movie?api_key=${this.apiKey}&sort_by=popularity.desc&language=es&page=1`;
+  getPopularMovies(page: number = 1): Observable<IMoviePage> {
+    const url = `${this.apiURL}movie?api_key=${this.apiKey}&sort_by=popularity.desc&language=es&page=${page}`;
 
     // Realiza la solicitud HTTP y devuelve el observable
     return this.http.get<IMoviePage>(url);

@@ -1,2 +1,2 @@
-<mat-paginator class="flex items-center justify-center"  [length]="length" pageSize="1" [hidePageSize]="true" aria-label="Elige una página">
+<mat-paginator class="flex items-center justify-center"  [length]="length" pageSize="1" [hidePageSize]="true" aria-label="Elige una página" (page)="onPageChange($event)">
 </mat-paginator>
