@@ -1,14 +1,18 @@
 <main class="mt-5 w-11/12 xl:w-2/4 md:w-3/4 sm:w-11/12 flex flex-col gap-5 mx-auto">
+    <!-- Paginator Component -->
     <app-paginator [length]="popularMovies.total_pages" (pageChange)="onPageChange($event)" />
+    <app-movie-filter (filterChange)="onFilterChange($event)"></app-movie-filter>
     @for (movie of popularMovies.results; track $index) {
+    <!-- Lazy loading by viewport -->
     @defer (on viewport;) {
-    <app-movie-card 
-        [movie_properties]="movie"
-    />
+    <!-- Movie Card Component -->
+    <app-movie-card [movie_properties]="movie" />
     } @placeholder {
-    <app-loader></app-loader>
+    <!-- Loader Component -->
+    <app-loader />
     } @loading {
-    <app-loader></app-loader>
+    <!-- Loader Component -->
+    <app-loader />
     }
     }
     <app-paginator [length]="popularMovies.total_pages" (pageChange)="onPageChange($event)" />

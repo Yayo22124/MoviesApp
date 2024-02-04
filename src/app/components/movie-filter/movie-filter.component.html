@@ -1,0 +1,25 @@
+<form [formGroup]="form">
+    <mat-accordion displayMode="default" [multi]="true" [hideToggle]="false">
+        <mat-expansion-panel [hideToggle]="false">
+            <mat-expansion-panel-header class="flex items-center justify-center"><span class="h-full">Filtrar</span></mat-expansion-panel-header>
+            <div class="flex items-center justify-evenly">
+                <mat-form-field>
+                    <mat-label>Filtrar por:</mat-label>
+                    <mat-select formControlName="sortBy" placeholder="Filtrar por:" (ngModelChange)="emitFilterChange()">
+                        <mat-option value="popularity">Popularidad</mat-option>
+                        <mat-option value="vote_average">Calificación</mat-option>
+                        <mat-option value="vote_count">Cantidad de Votos</mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>De manera:</mat-label>
+                    <mat-select formControlName="sortType" placeholder="De manera:" (ngModelChange)="emitFilterChange()">
+                        <mat-option value="asc">Ascendente</mat-option>
+                        <mat-option value="desc">Descendente</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</form>

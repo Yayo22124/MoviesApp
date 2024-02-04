@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieFilterComponent, iFilter } from '../../../../components/movie-filter/movie-filter.component';
 
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,6 +22,7 @@ import { PaginatorComponent } from '../../../../components/paginator/paginator.c
     LoaderComponent,
     PaginatorComponent,
     MovieCardComponent,
+    MovieFilterComponent
   ],
   templateUrl: './most-popular.component.html',
   styleUrl: './most-popular.component.scss',
@@ -67,6 +69,21 @@ export class MostPopularComponent implements OnInit {
       }
     );
   }
+
+  onFilterChange(filter: iFilter): void {
+    // Realizar acciones con el filtro, como actualizar la consulta a la API
+    // Puedes llamar a this.moviesApiService.searchMovies() con los nuevos valores del filtro
+    this.moviesApiService.getPopularMovies(1, filter.sortBy,  filter.sortType ).subscribe(
+      (response) => {
+        this.popularMovies = response;
+      },
+      (err) => {
+        console.error(err);
+        
+      }
+    )
+  }
+  
 
   onPageChange(page: number): void {
     this.moviesApiService.getPopularMovies(page).subscribe(

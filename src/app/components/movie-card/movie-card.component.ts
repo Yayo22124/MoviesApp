@@ -35,4 +35,6 @@ export class MovieCardComponent {
       release_date,
     } = this.movieProperties;
   }
+
+
 }
