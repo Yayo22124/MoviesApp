@@ -5,6 +5,7 @@ import { IMovie } from '../../core/interfaces/i-movie';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
@@ -24,17 +25,6 @@ export class MovieCardComponent {
     vote_average: 0,
     release_date: '',
   };
-  constructor() {
-    const {
-      vote_average,
-      title,
-      overview,
-      popularity,
-      poster_path,
-      vote_count,
-      release_date,
-    } = this.movieProperties;
+  constructor(private router: Router) {
   }
-
-
 }

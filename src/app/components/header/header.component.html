@@ -4,7 +4,7 @@
         <button class="hidden sm:flex" mat-button [routerLink]="['/app/movies/home']"
             routerLinkActive="bg-black/70">Inicio</button>
         <button class="hidden sm:flex" mat-button [routerLink]="['/app/movies/playing-now']"
-            routerLinkActive="bg-black/70">Ver Ahora</button>
+            routerLinkActive="bg-black/70">Cartelera</button>
         <button class="hidden sm:flex" mat-button [routerLink]="['/app/movies/most-popular']"
             routerLinkActive="bg-black/70">Más Popular</button>
         <button class="flex sm:hidden" mat-icon-button [matMenuTriggerFor]="menu"
@@ -18,7 +18,7 @@
             </button>
             <button mat-menu-item [routerLink]="['/app/movies/playing-now']" routerLinkActive="bg-white/20 " class="flex items-center justify-around gap-1">
                 <mat-icon>play_arrow</mat-icon>
-                Ver Ahora
+                Cartelera
             </button>
             <button mat-menu-item [routerLink]="['/app/movies/most-popular']" routerLinkActive="bg-white/20"  class="flex items-center justify-around gap-1">
                 <mat-icon>star</mat-icon>
